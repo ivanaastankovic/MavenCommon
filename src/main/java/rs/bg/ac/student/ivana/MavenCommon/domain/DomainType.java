@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.util.List;
 
 /**
- * Interfejs koji predstavlja domenski interfejs
+ * Interfejs koji predstavlja domenski tip
  * @author Ivana
  * @version 0.1
  */
@@ -18,7 +18,7 @@ public interface DomainType extends Serializable{
     String getTableName();
     /**
      * Vraca String kao naziv kolona za unos jedne instance u bazu
-     * @return String kao naziv kolona 
+     * @return String kao naziv kolona za unos
      */
     String getColumnNamesForInsert();
     

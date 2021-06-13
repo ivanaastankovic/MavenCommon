@@ -10,22 +10,66 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Klasa koja implementira DomainType interfejs i predstavlja zalbu 
+ * @author Ivana
+ *
+ */
 public class Claim implements DomainType{
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * Long kao identifikacioni broj zalbe
+	 */
 	private Long claimID;
+	
+	/**
+	 * Date kao datum unosa zalbe
+	 */
     private Date fileDate;
+    
+    /**
+     * String kao opis aktivnosti 
+     */
     private String activity;
+    
+    /**
+     * BigDecimal kao suma za isplatu osiguranja
+     */
     private BigDecimal paymentSum;
+    
+    /**
+     * Client instanca klase Client kao klijenta na koga se odnosi zalba
+     */
     private Client client;
+    
+    /**
+     * Status enum vrednost kao status u kom se zalba nalazi
+     */
     private Status status;
+    
+    /**
+     * RiskType instanca klase RiskType kao okvir rizika u kom se zalba nalazi. 
+     */
     private RiskType riskType;
 
+    /**
+     *  Konstruktor koji inicijalizuje objekat klase Claim 
+     */
     public Claim() {
     }
-
+    /**
+     * Parametarski konstruktor koji inicijalizuje objekat i postavlja vrednosti za atribute fileDate, activity, paymentSum, Client, Status i RiskType 
+     * @param fileDate Date kao datum unosa zalbe
+     * @param activity String kao opis aktivnosti 
+     * @param paymentSum BigDecimal kao suma za isplatu osiguranja
+     * @param client Client instanca klase Client kao klijenta na koga se odnosi zalba
+     * @param status Status enum vrednost kao status u kom se zalba nalazi
+     * @param riskType RiskType instanca klase RiskType kao okvir rizika u kom se zalba nalazi.
+     */
     public Claim(Date fileDate, String activity, BigDecimal paymentSum, Client client, Status status, RiskType riskType) {
        
         this.fileDate = fileDate;
@@ -35,65 +79,125 @@ public class Claim implements DomainType{
         this.status = status;
         this.riskType = riskType;
     }
-
+    
+    /**
+     * Vraca RiskType kao tip rizika kome pripada zalba
+     * @return RiskType instanca klase RiskType kao okvir rizika u kom se zalba nalazi.
+     */
     public RiskType getRiskType() {
         return riskType;
     }
-
+    /**
+     * Postavlja RiskType na novu vrednost.
+     * @param riskType RiskType instanca klase RiskType kao okvir rizika u kom se zalba nalazi.
+     */
     public void setRiskType(RiskType riskType) {
         this.riskType = riskType;
     }
 
+    /**
+     * Vraca vrednost identifikacionog broja zalbe.
+     * @return Long kao identifikacioni broj zalbe
+     */
     public Long getClaimID() {
         return claimID;
     }
-
+    
+    /**
+     * Postavlja identifikacioni broj zalbe na novu vrednost
+     * @param claimID Long kao identifikacioni broj zalbe
+     */
     public void setClaimID(Long claimID) {
         this.claimID = claimID;
     }
-
+    
+    /**
+     * Vraca Date kao datum unosa zalbe.
+     * @return Date kao datum unosa zalbe
+     */
     public Date getFileDate() {
         return fileDate;
     }
-
+    
+    /**
+     * Postavlja fileDate na novu vrednost
+     * @param fileDate Date kao datum unosa zalbe
+     */
     public void setFileDate(Date fileDate) {
         this.fileDate = fileDate;
     }
 
+    /**
+     * Vraca String kao opis aktivnosti.
+     * @return String kao opis aktivnosti 
+     */
     public String getActivity() {
         return activity;
     }
 
+    /**
+     * Postavlja String aktivnost na novu vrednost
+     * @param activity String kao opis aktivnosti 
+     */
     public void setActivity(String activity) {
         this.activity = activity;
     }
 
+    /**
+     * Vraca BigDecimal kao sumu za isplatu osiguranja
+     * @return BigDecimal kao suma za isplatu osiguranja
+     */
     public BigDecimal getPaymentSum() {
         return paymentSum;
     }
-
+    
+    /**
+     * Postavlja BigDecimal kao sumu za isplatu osiguranja na novu vrednost
+     * @param paymentSum BigDecimal kao suma za isplatu osiguranja
+     */
     public void setPaymentSum(BigDecimal paymentSum) {
         this.paymentSum = paymentSum;
     }
-
+    
+    /**
+     * Vraca instancu klase Client na koga se odnosi zalba.
+     * @return Client instanca klase Client kao klijenta na koga se odnosi zalba
+     */
     public Client getClient() {
         return client;
     }
 
+    /**
+     * Postavlja instancu Client na koga se odnosi zalba na novu vrednost.
+     * @param client Client instanca klase Client kao klijenta na koga se odnosi zalba
+     */
     public void setClient(Client client) {
         this.client = client;
     }
 
+    /**
+     * Vraca enum Status kao status u kom se zalba nalazi.
+     * @return Status enum vrednost kao status u kom se zalba nalazi
+     */
     public Status getStatus() {
         return status;
     }
 
+    /**
+     * Postavlja enum Status na novu vrednost.
+     * @param status Status enum vrednost kao status u kom se zalba nalazi
+     */
     public void setStatus(Status status) {
         this.status = status;
     }
 
    
-
+    /**
+     * @return <ul>
+     * 	<li>true - Ako su oba objekta klase Claim i imaju isti ClaimID</li>
+     * 	<li>false - U svim ostalim slucajevima</li>
+     * </ul>
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -111,12 +215,13 @@ public class Claim implements DomainType{
         }
         return true;
     }
-
+    
     @Override
     public String toString() {
         return "claimID " + claimID;
     }
 
+   
     @Override
     public String getTableName() {
         return "claim";
@@ -160,6 +265,7 @@ public class Claim implements DomainType{
         claimID=id;
     }
 
+    
     @Override
     public List<DomainType> getRS(ResultSet rs) {
         List<DomainType> list=new ArrayList<>();

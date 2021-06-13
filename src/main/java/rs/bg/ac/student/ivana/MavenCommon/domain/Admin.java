@@ -9,26 +9,52 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Klasa koja implementira DomainType interfejs i predstavlja admina 
+ * @author Ivana
+ *
+ */
 public class Admin implements DomainType{
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * String koji predstavlja korisnicko ime admina.
+	 */
 	private String username;
+	/**
+	 * String koji predstavlja lozinku admina.
+	 */
     private String password;
     
+    /**
+     * Konstruktor koji inicijalizuje objekat klase Admin
+     */
+    public Admin() {
+    }
+    /**
+     * Parametarski konstruktor koji inicijalizuje objekat i postavlja vrednosti za Username i Password
+     * @param username Korisnicko ime admina kao String 
+     * @param password Lozinka admina kao String 
+     */
+    public Admin(String username, String password) {
+    	this.username = username;
+    	this.password = password;
+    }
+   
     @Override
-    
-    
     public String getTableName() {
          return "admin";
     }
-
+    
+    
     @Override
     public String getColumnNamesForInsert() {
         return "";
     }
 
+    
     @Override
     public String getInsertValues() {
         return "";
@@ -38,12 +64,12 @@ public class Admin implements DomainType{
     public void setId(Long id) {
         
     }
-
+    
     @Override
     public String getJoinCondition() {
         return "";
     }
-
+    
     @Override
     public String getUpdateString(DomainType d) {
         return "";
@@ -71,44 +97,54 @@ public class Admin implements DomainType{
          return list;
     }
 
+    /**
+     * @throws UnsupportedOperationException Kada ne postoji String brisanje.
+     */
     @Override
     public String getDeleteString() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    
     /**
-     * Konstruktor koji inicijalizuje objekat klase Admin
+     * Vraca String kao lozinku admina.
+     * @return password Lozinka admina kao String
      */
-    public Admin() {
-    }
-    /**
-     * Parametarski konstruktor koji inicijalizuje objekat i postavlja vrednosti za Username i Password
-     * @param username Username admina kao String 
-     * @param password Password admina kao String 
-     */
-    public Admin(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
     public String getPassword() {
         return password;
     }
-
+    
+    /**
+     * Postavlja lozinku admina na novu vrednost.
+     * @param password String kao lozinka admina
+     */
     public void setPassword(String password) {
         this.password = password;
     }
-
+    
+    /**
+     * Vraca korisnicko ime admina.
+     * @return username String kao korisnicko ime admina
+     */
     public String getUsername() {
         return username;
     }
 
+    /**
+     * Postavlja korisnicko ime admina na novu vrednost.
+     * @param username String kao korisnicko ime admina
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
     
-
+    /**
+     * @return <ul>
+     * 			<li>true - Ako su oba objekta klase Admin i imaju isto korisnicko ime i lozinku</li>
+     * 			<li>false - U svim ostalim slucajevima</li>
+     * 		  </ul>
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
