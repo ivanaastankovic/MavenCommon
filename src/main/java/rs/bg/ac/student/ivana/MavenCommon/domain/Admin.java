@@ -10,10 +10,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Admin implements DomainType{
-    private String username;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String username;
     private String password;
     
     @Override
+    
+    
     public String getTableName() {
          return "admin";
     }
@@ -44,8 +50,9 @@ public class Admin implements DomainType{
     }
 
     /**
-     * Vraca listu domenskog tipa kao rezultat upita 
-     * @return 
+     * Vraca listu domenskih objekata (Admin) kao rezultat upita 
+     * @param rs ResultSet kao rezultat upita iz baze
+     * @return List Lista domenskih objekata (Admin)
      */
     @Override
     public List<DomainType> getRS(ResultSet rs) {

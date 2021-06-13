@@ -3,7 +3,11 @@ package rs.bg.ac.student.ivana.MavenCommon.communication;
 import java.io.Serializable;
 
 public class Response  implements Serializable{
-    private Object result;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Object result;
     private Exception exception;
 
     public Response() {

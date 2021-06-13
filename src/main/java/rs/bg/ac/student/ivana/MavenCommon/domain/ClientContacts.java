@@ -3,7 +3,7 @@ package rs.bg.ac.student.ivana.MavenCommon.domain;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -11,7 +11,11 @@ import java.util.logging.Logger;
 
 
 public class ClientContacts implements DomainType{
-    private Long contactID;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long contactID;
     private String address;
     private String town;
     private String phone;

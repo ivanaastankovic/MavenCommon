@@ -11,7 +11,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Claim implements DomainType{
-    private Long claimID;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long claimID;
     private Date fileDate;
     private String activity;
     private BigDecimal paymentSum;

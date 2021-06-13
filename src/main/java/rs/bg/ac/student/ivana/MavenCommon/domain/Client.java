@@ -10,7 +10,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Client implements DomainType{
-    private Long clientID;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long clientID;
     private String firstName;
     private String lastName;
     private String jmbg;

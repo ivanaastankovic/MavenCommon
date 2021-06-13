@@ -10,7 +10,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RiskType implements DomainType{
-    private Long riskTypeID;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long riskTypeID;
     private String name;
     private String domain;
     private String description;

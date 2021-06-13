@@ -1,10 +1,10 @@
 package rs.bg.ac.student.ivana.MavenCommon.communication;
 
-import java.io.BufferedOutputStream;
+//import java.io.BufferedOutputStream;
 import java.io.EOFException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+//import java.io.ObjectOutputStream;
+//import java.io.Serializable;
 import java.net.Socket;
 import java.net.SocketException;
 

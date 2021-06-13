@@ -4,7 +4,11 @@ import java.io.Serializable;
 
 
 public class Request  implements Serializable{
-    private Operation operation;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Operation operation;
     private Object argument;
 
     public Request() {
