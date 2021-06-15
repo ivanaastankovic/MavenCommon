@@ -64,7 +64,7 @@ public class Client implements DomainType{
 
     @Override
     public String getTableName() {
-        return "clients ";
+        return "clients";
     }
 
     @Override
