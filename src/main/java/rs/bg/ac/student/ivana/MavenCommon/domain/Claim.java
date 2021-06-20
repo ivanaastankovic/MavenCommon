@@ -236,7 +236,7 @@ public class Claim implements DomainType{
     public String getInsertValues() {
         StringBuilder sb = new StringBuilder();
         sb.append(claimID).append(",")
-                .append("'").append(new java.sql.Date(fileDate.getTime())).append("',")
+                .append("'").append(new Date(fileDate.getTime())).append("',")
                 .append("'").append(activity).append("',")
                 .append(paymentSum).append(",")
                 .append(client.getClientID()).append(",")
@@ -282,7 +282,7 @@ public class Claim implements DomainType{
                 cl.setClientID(rs.getLong("c.clientID"));
                 cl.setJmbg(rs.getString("cl.jmbg"));
                 cl.setFirstName(rs.getString("cl.firstName"));
-                cl.setLastName("cl.LastName");
+                cl.setLastName("cl.LastName");								/// !
                 c.setClient(cl);
                 RiskType rt=new RiskType();
                 rt.setRiskTypeID(rs.getLong("c.riskTypeID"));

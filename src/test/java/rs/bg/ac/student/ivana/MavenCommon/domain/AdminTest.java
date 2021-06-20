@@ -2,11 +2,18 @@ package rs.bg.ac.student.ivana.MavenCommon.domain;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+//import java.util.Date;
+import java.util.List;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 
 public class AdminTest {
 	
@@ -71,7 +78,39 @@ public class AdminTest {
 		Admin a2 = new Admin(u2,p2);
 		
 		assertEquals(eq,a1.equals(a2));
-		
 	}
+	
+	@Test
+	void getDeleteString()
+	{
+		assertThrows(UnsupportedOperationException.class,()->admin.getDeleteString());
+	}
+	
+	@Mock
+	ResultSet resultSet;
+	@Test
+	void testGetRS() {
+		
+		try {
+        	resultSet = Mockito.mock(ResultSet.class);
+            Mockito.when(resultSet.getString("username")).thenReturn("u");
+            Mockito.when(resultSet.getString("password")).thenReturn("p");
+            Mockito.when(resultSet.next()).thenReturn(true).thenReturn(false);
+        	
+            List<DomainType> admins= admin.getRS(resultSet);
+            Admin admin= (Admin)admins.get(0);
 
+            assertNotNull(admins);
+            assertNotNull(admin);
+    		assertEquals("u", admin.getUsername());
+    		assertEquals("p", admin.getPassword());
+		} catch (SQLException e) {
+        	e.printStackTrace();
+        }
+	}
+	
+	@Test
+	void getTableName() {
+		assertEquals("admin", admin.getTableName());
+	}
 }
