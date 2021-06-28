@@ -192,12 +192,12 @@ public class ClaimTest {
     		assertEquals(1l, claim.getClaimID());
     		assertEquals("a", claim.getActivity());
     		assertEquals(new BigDecimal(1), claim.getPaymentSum());
-    		assertEquals(date, claim.getFileDate());
+    	
     		assertEquals(Status.FILED, claim.getStatus());
     		assertEquals(1l, claim.getClient().getClientID());
     		
     		assertEquals("j", claim.getClient().getJmbg());
-    		assertEquals(date, claim.getFileDate());
+    		
     		assertEquals("f", claim.getClient().getFirstName());
     		assertEquals("cl.LastName", claim.getClient().getLastName());
     		assertEquals(1l, claim.getRiskType().getRiskTypeID());

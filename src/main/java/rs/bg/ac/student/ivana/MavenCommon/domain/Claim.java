@@ -229,19 +229,20 @@ public class Claim implements DomainType{
 
     @Override
     public String getColumnNamesForInsert() {
-         return "id, fileDate, activity, paymentSum, clientID, status, riskTypeID";
+         return "id, activity, paymentSum, clientID, status, riskTypeID";
+
     }
 
     @Override
     public String getInsertValues() {
         StringBuilder sb = new StringBuilder();
         sb.append(claimID).append(",")
-                .append("'").append(new Date(fileDate.getTime())).append("',")
                 .append("'").append(activity).append("',")
                 .append(paymentSum).append(",")
                 .append(client.getClientID()).append(",")
                 .append("'").append(status).append("',")
                 .append(riskType.getRiskTypeID()).append(" ");
+      
         return sb.toString();
     }
 
@@ -276,7 +277,7 @@ public class Claim implements DomainType{
                 c.setClaimID(rs.getLong("c.id"));
                 c.setActivity(rs.getString("c.activity"));
                 c.setPaymentSum(rs.getBigDecimal("c.paymentSum"));
-                c.setFileDate(new Date(rs.getDate("c.fileDate").getTime()));
+                c.setFileDate(new Date());
                 c.setStatus(Status.valueOf(rs.getString("c.status")));
                 Client cl=new Client();
                 cl.setClientID(rs.getLong("c.clientID"));

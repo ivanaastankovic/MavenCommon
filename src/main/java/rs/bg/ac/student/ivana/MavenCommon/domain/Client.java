@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -187,6 +188,8 @@ public class Client implements DomainType{
      * @return List kao lista instanci klase ClientContacts
      */
     public List<ClientContacts> getContacts() {
+    	if(contacts==null)		//// dodato
+    		return new LinkedList<ClientContacts>(); //// dodato
         return contacts;
     }
     
